@@ -51,5 +51,6 @@ namespace VbFinal.Tests.Controllers
             //Assert
             Assert.AreEqual("Index:", result.ViewName);
         }
+
     }
 }
