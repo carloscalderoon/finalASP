@@ -45,7 +45,7 @@ namespace VbFinal.Controllers
             VbPlayer vbPlayer = db.VbPlayers.SingleOrDefault(c => c.VbPlayerId == id);
             if (vbPlayer == null)
             {
-                return HttpNotFound();
+                RedirectToAction("Error");
             }
             return View(vbPlayer);
         }
@@ -70,6 +70,8 @@ namespace VbFinal.Controllers
                 //db.VbPlayers.Add(vbPlayer);
                 //db.SaveChanges();
 
+                vbPlayer.VbPlayerId = vbPlayer.VbPlayerId+1;
+
                 db.Save(vbPlayer);
                 return RedirectToAction("Index");
             }
@@ -89,7 +91,7 @@ namespace VbFinal.Controllers
             VbPlayer vbPlayer = db.VbPlayers.SingleOrDefault(c => c.VbPlayerId == id);
             if (vbPlayer == null)
             {
-                return HttpNotFound();
+                RedirectToAction("Error");
             }
             return View(vbPlayer);
         }
@@ -118,13 +120,13 @@ namespace VbFinal.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                RedirectToAction("Error");
             }
             //VbPlayer vbPlayer = db.VbPlayers.Find(id);
             VbPlayer vbPlayer = db.VbPlayers.SingleOrDefault(c => c.VbPlayerId == id);
             if (vbPlayer == null)
             {
-                return HttpNotFound();
+                RedirectToAction("Error"); 
             }
             return View(vbPlayer);
         }

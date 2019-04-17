@@ -18,19 +18,19 @@ namespace VbFinal.Models
 
         VbPlayer IMockVbPlayer.Save(VbPlayer vbPlayer)
         {
-            //if (vbPlayer.VbPlayerId == 0)
-            //{
-            //    db.VbPlayers.Add(vbPlayer);
-            //}
-            //else
-            //{
-            //    db.Entry(vbPlayer).State = System.Data.Entity.EntityState.Modified;
-            //}
+            if (vbPlayer.VbPlayerId == 0)
+            {
+                db.VbPlayers.Add(vbPlayer);
+            }
+            else
+            {
+                db.Entry(vbPlayer).State = System.Data.Entity.EntityState.Modified;
+            }
 
-            //db.SaveChanges();
-            //return vbPlayer;
+            db.SaveChanges();
+            return vbPlayer;
 
-            throw new NotImplementedException();
+
         }
 
         public void Dispose()
